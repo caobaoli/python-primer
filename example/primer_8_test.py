@@ -65,6 +65,7 @@ for i in range(0, len(res)):
 '''
 
 # 爬取美女图片
+'''
 url = 'http://www.mmjpg.com/'
 header = ('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36')
 opener = urllib.request.build_opener()
@@ -87,7 +88,22 @@ if len(res)>0 :
                     print('第'+str(i+1)+'张下载成功')
         except urllib.error.HTTPError as e:
             print(e.getcode())
+'''
 
+# 爬取䊭事百科
+header = ('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36')
+opener = urllib.request.build_opener()
+opener.addheaders = [header]
+mue = open('D:/python_cache/cache/mue.txt','w')
+for i in range(0,2):
+    url = 'https://www.qiushibaike.com/8hr/page/str(i+1)/'
+    data = opener.open(url).read().decode()
+    pat = '<span>(.*?)</span>'
+    res = re.compile(pat).findall(data)
+    mue.writelines(res)
+    # for j in range(0, len(res)):
+    #     mue.write(res(j))
+    #     print('第'+str(j+1)+'条记录写入成功！')
 
 
 
