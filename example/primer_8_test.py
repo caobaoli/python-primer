@@ -91,6 +91,7 @@ if len(res)>0 :
 '''
 
 # 爬取䊭事百科
+'''
 header = ('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36')
 opener = urllib.request.build_opener()
 opener.addheaders = [header]
@@ -104,7 +105,15 @@ for i in range(0,2):
     # for j in range(0, len(res)):
     #     mue.write(res(j))
     #     print('第'+str(j+1)+'条记录写入成功！')
+'''
 
+#今日头条
+url = 'https://www.toutiao.com/api/pc/feed/'
+header = ('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36')
+opener = urllib.request.build_opener()
+opener.addheaders = [header]
+data = opener.open(url).read().decode('gbk')
+print(data)
 
 
 
